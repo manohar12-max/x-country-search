@@ -14,7 +14,7 @@ export default function App() {
         setSpareData(res.data)
         }
        ;
-      } catch (e) {
+      } catch (error) {
          console.error("Error fetching data:",error);
       }
     }
