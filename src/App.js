@@ -9,10 +9,13 @@ export default function App() {
     async function fetchData() {
       try {
         let res = await axios.get("https://restcountries.com/v3.1/all");
-        setData(res.data);
-        setSpareData(res.data);
+          if (res.status == 200) {
+           setData(res.data);
+        setSpareData(res.data)
+        }
+       ;
       } catch (e) {
-        console.error(e);
+         console.error("Error fetching data:",error);
       }
     }
 
