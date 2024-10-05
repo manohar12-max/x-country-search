@@ -9,13 +9,11 @@ export default function App() {
     async function fetchData() {
       try {
         let res = await axios.get("https://restcountries.com/v3.1/all");
-          if (res.status == 200) {
-           setData(res.data);
-        setSpareData(res.data)
-        }
-       ;
-      } catch (error) {
-         console.error("Error fetching data:",error);
+        console.log(res);
+        setData(res.data);
+        setSpareData(res.data);
+      } catch (e) {
+        console.log(e);
       }
     }
 
@@ -46,7 +44,7 @@ export default function App() {
       />
       <div className="country__grid">
         {spareData.map((country) => (
-          <div className="countryCard">
+          <div key={country.name.common} className="countryCard">
             <img src={country.flags.png} alt={country.name.common} />
             <p>{country.name.common}</p>
           </div>
