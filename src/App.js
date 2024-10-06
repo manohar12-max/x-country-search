@@ -9,7 +9,6 @@ export default function App() {
     async function fetchData() {
       try {
         let res = await axios.get("https://restcountries.com/v3.1/all");
-        console.log(res);
         setData(res.data);
         setSpareData(res.data);
       } catch (e) {
